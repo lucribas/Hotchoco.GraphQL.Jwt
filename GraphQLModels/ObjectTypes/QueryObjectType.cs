@@ -7,7 +7,16 @@ namespace Hotchoco.GraphQL.Jwt.GraphQLModels.ObjectTypes
     {
         protected override void Configure(IObjectTypeDescriptor<Query> descriptor)
         {
-            descriptor.Field(_ => _.Welcome()).Name("Welcome").Type<StringType>();
+            descriptor.Field(_ => _.Welcome())
+				.Name("Welcome").Type<StringType>()
+
+				// using Roles Based Authorization
+				// .Authorize(new[]{"user","admin"});
+
+				// using Policy-Based Roles Authorization: Role
+				// .Authorize("user-policy");
+				// using Policy-Based Roles Authorization: Claim
+				.Authorize("country-policy");
         }
     }
 }

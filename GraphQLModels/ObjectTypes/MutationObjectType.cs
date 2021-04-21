@@ -6,6 +6,9 @@ namespace Hotchoco.GraphQL.Jwt.GraphQLModels.ObjectTypes
 {
     public class MutationObjectType: ObjectType<Mutation>
     {
+
+		// using Custom Attributes:
+		// https://chillicream.com/docs/hotchocolate/api-reference/custom-attributes/
         protected override void Configure(IObjectTypeDescriptor<Mutation> descriptor)
         {
             descriptor.Field(_ => _.UserLogin(default,default))
